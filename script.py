@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
-# method that reads in equation with form: ax + by + cz = e
+# method that reads in equation with form: ax + by + cz = d
 def readEquation():
-    print("Equation form ax + bx + cz = e")
+    print("Equation form ax + bx + cz = d")
     a = float(input('a = '))
     b = float(input('b = '))
     c = float(input('c = '))
-    e = float(input('e = '))
-    return [a, b, c, e]
+    d = float(input('d = '))
+    return [a, b, c, d]
 
 # method that simply prints out the current matrix 
 def printMatrix(matrix):
@@ -45,7 +45,7 @@ def bElimination():
 
 
 # Main part
-print("Gauss Elimination with 3 Unknown variables\n")
+print("Gauss Elimination with 3 unknown variables\n")
 
 # Read in the 3 equations
 print("Enter the coefficents for Equation I")
@@ -72,16 +72,13 @@ print("B elimination part:")
 bElimination()
 printMatrix(matrix)
 
-# check how many solutions exist for the equation system
-# ...
-
-# calculate the 3 variable x, y and z
+# calculate the 3 variables x, y and z
 try:
     z = matrix[2][3] / matrix[2][2]
     y = (matrix[1][3] - z * matrix[1][2]) / matrix[1][1]
     x = (matrix[0][3] - z * matrix[0][2] - y * matrix[0][1]) / matrix[0][0]
 except:
-    print("This Equation system has no solution")
+    print("This Equation system has no clear solution")
     exit()
 
 
